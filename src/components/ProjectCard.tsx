@@ -5,17 +5,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="h-full">
+    <Card className="group relative h-full border border-border bg-card shadow-none">
       <CardHeader>
-        <CardTitle className="text-lg">{project.title}</CardTitle>
+        <CardTitle className="text-lg font-semibold">{project.title}</CardTitle>
       </CardHeader>
 
       <CardContent className="flex h-full flex-col gap-4">
         <p className="text-sm text-muted-foreground">{project.description}</p>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.18em]">
           {project.tech.map((t) => (
-            <Badge key={t} variant="secondary">
+            <Badge key={t} variant="outline">
               {t}
             </Badge>
           ))}
