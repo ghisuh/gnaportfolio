@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Space_Grotesk } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
+  subsets: ["latin"],
+});
+
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
   subsets: ["latin"],
 });
 
@@ -12,7 +17,6 @@ const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: ["400"],
 });
-
 export const metadata: Metadata = {
   title: "Ghisuh — Full-Stack Developer",
   description:
@@ -44,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${instrumentSerif.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${instrumentSans.variable} ${instrumentSerif.variable} antialiased`}
       >
         {children}
       </body>

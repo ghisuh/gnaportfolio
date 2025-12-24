@@ -4,93 +4,85 @@ import { Separator } from "@/components/ui/separator";
 import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
 
-const stack = [
-  {
-    title: "Frontend",
-    description: "Interface systems with crisp motion and layout discipline.",
-    items: ["Next.js", "React", "TypeScript", "Tailwind", "shadcn/ui"],
-  },
-  {
-    title: "Backend",
-    description: "APIs built for clarity, speed, and long-term reliability.",
-    items: ["Node.js", "Postgres", "Prisma", "Redis", "Fastify"],
-  },
-  {
-    title: "Tooling",
-    description: "Delivery and observability from local to production.",
-    items: ["Vercel", "GitHub", "Docker", "Playwright", "Figma"],
-  },
+const stackIcons = [
+  { name: "Next.js", slug: "nextdotjs" },
+  { name: "React", slug: "react" },
+  { name: "TypeScript", slug: "typescript" },
+  { name: "Tailwind", slug: "tailwindcss" },
+  { name: "Node.js", slug: "nodedotjs" },
+  { name: "Postgres", slug: "postgresql" },
+  { name: "Prisma", slug: "prisma" },
+  { name: "Redis", slug: "redis" },
+  { name: "Fastify", slug: "fastify" },
+  { name: "Vercel", slug: "vercel" },
+  { name: "Docker", slug: "docker" },
+  { name: "GitHub", slug: "github" },
+  { name: "Figma", slug: "figma" },
 ];
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="mx-auto max-w-6xl px-6 pb-24 pt-16 sm:pt-20">
-        {/* HERO */}
-        <section className="grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-end">
-          <div className="space-y-6">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Full-stack developer
-            </p>
+      <section className="hero-bleed">
+        <div className="hero-bleed__bg" aria-hidden="true" />
+        <div className="hero-bleed__blob" aria-hidden="true" />
+        <div className="hero-panel">
+          <div className="hero-panel__content">
+          <p className="hero-panel__kicker">Full-stack developer</p>
 
-            <h1 className="text-5xl font-semibold tracking-tight sm:text-7xl">
-              <span className="block font-[var(--font-instrument-serif)]">
-                Ghisuh
-              </span>
-              <span className="block text-gradient">
-                Building calm, focused software.
-              </span>
-            </h1>
+          <h1 className="hero-panel__title">
+            <span className="hero-panel__name">Ghisuh</span>
+            <span className="hero-panel__headline">
+              Building calm, focused software.
+            </span>
+          </h1>
 
-            <p className="max-w-xl text-base text-muted-foreground sm:text-lg">
-              I build clean, fast web apps with strong backend fundamentals.
-              Currently looking for SWE internships.
-            </p>
+          <p className="hero-panel__mission">
+            I build clean, fast web apps with strong backend fundamentals.
+            Currently looking for SWE internships.
+          </p>
 
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Button asChild>
-                <a
-                  href="https://github.com/ghisuh"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-              </Button>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button asChild className="hero-cta hero-cta--primary">
+              <a
+                href="https://github.com/ghisuh"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+            </Button>
 
-              <Button asChild variant="outline">
-                <a
-                  href="https://www.linkedin.com/in/ghisuh-na-b70b8a207/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="hero-cta hero-cta--ghost"
+            >
+              <a
+                href="https://www.linkedin.com/in/ghisuh-na-b70b8a207/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+            </Button>
 
-              <Button asChild variant="ghost">
-                <a href="/resume.pdf" target="_blank" rel="noreferrer">
-                  Resume
-                </a>
-              </Button>
-            </div>
+            <Button
+              asChild
+              variant="ghost"
+              className="hero-cta hero-cta--ghost"
+            >
+              <a href="/resume.pdf" target="_blank" rel="noreferrer">
+                Resume
+              </a>
+            </Button>
           </div>
+        </div>
+        </div>
+      </section>
 
-          <div className="space-y-6 border border-border p-6 text-sm text-muted-foreground">
-            <p className="text-xs uppercase tracking-[0.3em] text-foreground">
-              Focus
-            </p>
-            <p>
-              End-to-end product work with an emphasis on API clarity, stable
-              data layers, and crisp UI systems.
-            </p>
-            <p>
-              Available for internships and early-stage product teams who want a
-              reliable builder.
-            </p>
-          </div>
-        </section>
+      <main className="mx-auto max-w-6xl px-6 pb-24 pt-12 sm:pt-16">
 
         <Separator className="my-12" />
 
@@ -105,27 +97,20 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {stack.map((group) => (
-              <div
-                key={group.title}
-                className="border border-border p-5 shadow-none"
-              >
-                <p className="text-sm font-semibold uppercase tracking-[0.2em]">
-                  {group.title}
-                </p>
-                <p className="mt-2 text-xs text-muted-foreground">
-                  {group.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <span key={item} className="stack-pill">
-                      {item}
-                    </span>
-                  ))}
+          <div className="stack-marquee">
+            <div className="stack-marquee__track">
+              {[...stackIcons, ...stackIcons].map((tool, index) => (
+                <div className="stack-marquee__item" key={`${tool.slug}-${index}`}>
+                  <img
+                    src={`https://cdn.simpleicons.org/${tool.slug}`}
+                    alt=""
+                    className="stack-marquee__icon"
+                    loading="lazy"
+                  />
+                  <span className="stack-marquee__label">{tool.name}</span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
