@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Instrument_Serif, Space_Grotesk } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -48,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${instrumentSans.variable} ${instrumentSerif.variable} antialiased`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${instrumentSans.variable} ${instrumentSerif.variable} antialiased`}
       >
         {children}
       </body>

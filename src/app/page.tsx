@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
+import Image from "next/image";
 
 const stackIcons = [
   { name: "Next.js", slug: "nextdotjs" },
@@ -84,20 +85,28 @@ export default function Home() {
 
       <main className="mx-auto max-w-6xl px-6 pb-24 pt-12 sm:pt-16">
 
-        <Separator className="my-12" />
-
-        {/* STACK */}
-        <section className="space-y-6" id="stack">
+        {/* PROJECTS */}
+        <section className="space-y-6" id="projects">
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Stack
+              
             </p>
             <h2 className="text-3xl font-semibold tracking-tight">
-              The systems I&apos;m sharpest with.
+              Projects
             </h2>
+            <p className="text-sm text-muted-foreground">
+              Three projects that show full-stack ability, backend fundamentals,
+              and engineering depth.
+            </p>
           </div>
 
-          <div className="stack-marquee">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {projects.map((p) => (
+              <ProjectCard key={p.title} project={p} />
+            ))}
+          </div>
+
+          <div className="stack-marquee mt-4">
             <div className="stack-marquee__track">
               {[...stackIcons, ...stackIcons].map((tool, index) => (
                 <div className="stack-marquee__item" key={`${tool.slug}-${index}`}>
@@ -116,44 +125,45 @@ export default function Home() {
 
         <Separator className="my-12" />
 
-        {/* PROJECTS */}
-        <section className="space-y-6" id="projects">
-          <div className="space-y-2">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Projects
-            </p>
-            <h2 className="text-3xl font-semibold tracking-tight">
-              Selected work.
-            </h2>
-            <p className="text-sm text-muted-foreground">
-              Three projects that show full-stack ability, backend fundamentals,
-              and engineering depth.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {projects.map((p) => (
-              <ProjectCard key={p.title} project={p} />
-            ))}
-          </div>
-        </section>
-
-        <Separator className="my-12" />
-
         {/* ABOUT */}
         <section className="space-y-6" id="about">
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
             About
           </p>
-          <div className="border border-border p-6">
-            <h2 className="text-3xl font-semibold tracking-tight">
-              I like clean structure.
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
-              I like building products end-to-end: clean UI, thoughtful APIs,
-              and reliable data models. I focus on readable code, strong
-              fundamentals, and shipping.
-            </p>
+          <div className="about-panel">
+            <div className="about-panel__profile">
+              <div className="about-panel__photo-wrap">
+                <Image
+                  src="/about-headshot.jpg.jpeg"
+                  alt="Portrait of Ghisuh"
+                  fill
+                  className="about-panel__photo"
+                  sizes="(max-width: 768px) 100vw, 320px"
+                />
+              </div>
+              <h3 className="about-panel__name">Ghisuh Na</h3>
+              <p className="about-panel__role">
+                Full-Stack Engineer (Next.js + TypeScript)
+              </p>
+            </div>
+
+            <div className="about-panel__copy">
+              <p>
+                <strong>I build full-stack products that are clean and dependable.</strong>{" "}
+                I focus on the details that matter: clear architecture, readable
+                code, and interfaces that feel fast and intentional.
+              </p>
+              <p>
+                <strong>I ship v1 fast and improve through tight iteration.</strong>{" "}
+                I like working across the stack with typed APIs, solid data
+                models, and practical tooling that keeps delivery consistent.
+              </p>
+              <p>
+                <strong>My approach is simple: build for clarity first.</strong>{" "}
+                When complexity grows, I reduce it early so products stay easy
+                to use, easy to maintain, and ready to scale.
+              </p>
+            </div>
           </div>
         </section>
 

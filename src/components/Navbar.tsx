@@ -6,7 +6,6 @@ import logo from "@/app/icon.png";
 
 const links = [
   { label: "Projects", href: "#projects" },
-  { label: "Stack", href: "#stack" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
