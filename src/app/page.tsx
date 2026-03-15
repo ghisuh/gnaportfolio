@@ -74,7 +74,7 @@ export default function Home() {
               variant="ghost"
               className="hero-cta hero-cta--ghost"
             >
-              <a href="/resume.pdf" target="_blank" rel="noreferrer">
+              <a href="/ghisuh_resume.pdf" target="_blank" rel="noreferrer">
                 Resume
               </a>
             </Button>
@@ -83,21 +83,14 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="mx-auto max-w-6xl px-6 pb-24 pt-12 sm:pt-16">
+      <main className="w-full px-6 pb-24 pt-12 sm:px-8 sm:pt-16 lg:px-12">
 
         {/* PROJECTS */}
-        <section className="space-y-6" id="projects">
+        <section className="section-shell space-y-6" id="projects">
           <div className="space-y-2">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              
-            </p>
             <h2 className="text-3xl font-semibold tracking-tight">
               Projects
             </h2>
-            <p className="text-sm text-muted-foreground">
-              Three projects that show full-stack ability, backend fundamentals,
-              and engineering depth.
-            </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -126,42 +119,33 @@ export default function Home() {
         <Separator className="my-12" />
 
         {/* ABOUT */}
-        <section className="space-y-6" id="about">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            About
-          </p>
-          <div className="about-panel">
-            <div className="about-panel__profile">
-              <div className="about-panel__photo-wrap">
-                <Image
-                  src="/about-headshot.jpg.jpeg"
-                  alt="Portrait of Ghisuh"
-                  fill
-                  className="about-panel__photo"
-                  sizes="(max-width: 768px) 100vw, 320px"
-                />
-              </div>
-              <h3 className="about-panel__name">Ghisuh Na</h3>
-              <p className="about-panel__role">
-                Full-Stack Engineer (Next.js + TypeScript)
-              </p>
+        <section className="section-shell space-y-6" id="about">
+          <div className="about-feature">
+            <div className="about-feature__photo-wrap">
+              <Image
+                src="/about-headshot.jpg.jpeg"
+                alt="Portrait of Ghisuh"
+                fill
+                className="about-feature__photo"
+                sizes="(max-width: 1024px) 100vw, 520px"
+              />
             </div>
 
-            <div className="about-panel__copy">
-              <p>
-                <strong>I build full-stack products that are clean and dependable.</strong>{" "}
-                I focus on the details that matter: clear architecture, readable
-                code, and interfaces that feel fast and intentional.
-              </p>
-              <p>
-                <strong>I ship v1 fast and improve through tight iteration.</strong>{" "}
-                I like working across the stack with typed APIs, solid data
-                models, and practical tooling that keeps delivery consistent.
-              </p>
-              <p>
-                <strong>My approach is simple: build for clarity first.</strong>{" "}
-                When complexity grows, I reduce it early so products stay easy
-                to use, easy to maintain, and ready to scale.
+            <div className="about-feature__content">
+              <h2 className="about-feature__title">
+                Design <span>Elevates</span>
+                <br />
+                Experience
+              </h2>
+              <p className="about-feature__copy">
+                I am a full-stack engineer focused on building products that
+                feel effortless and dependable. I care deeply about clean
+                architecture, API clarity, and strong UI systems that support
+                real user needs. I enjoy turning complex product ideas into
+                clear flows, maintainable code, and reliable performance. My
+                process is iterative and practical: ship, observe, refine, and
+                keep improving until the experience is simple, scalable, and
+                genuinely useful.
               </p>
             </div>
           </div>
@@ -170,7 +154,7 @@ export default function Home() {
         <Separator className="my-12" />
 
         {/* CONTACT */}
-        <section className="space-y-4" id="contact">
+        <section className="section-shell space-y-4" id="contact">
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
             Contact
           </p>

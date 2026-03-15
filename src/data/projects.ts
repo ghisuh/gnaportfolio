@@ -8,25 +8,39 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Production Full-Stack App",
+    title: "Micro Fiverr",
     description:
-      "Full-stack app with auth, Postgres, CRUD, search/filtering, and deployment.",
-    tech: ["Next.js", "TypeScript", "Postgres", "Prisma", "Auth.js"],
-    liveUrl: "https://your-live-demo.com",
-    repoUrl: "https://github.com/ghisuh/your-repo",
+      "Full-stack freelance marketplace where users can create service listings, browse gigs, and leave reviews with secure authentication and protected routes.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth.js",
+    ],
+    liveUrl: "https://micro-fiverr-rrws.vercel.app/",
+    repoUrl: "https://github.com/ghisuh/Micro-Fiverr",
   },
   {
-    title: "Backend / API Project",
+    title: "Weather API Service",
     description:
-      "REST API with validation, rate limiting, caching, and OpenAPI docs.",
-    tech: ["Fastify", "TypeScript", "Postgres", "Redis", "OpenAPI"],
-    repoUrl: "https://github.com/ghisuh/your-repo",
+      "Production-style weather API with API key authentication, third-party provider normalization, Redis caching, and request logging for usage analytics.",
+    tech: [
+      "Fastify",
+      "TypeScript",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "OpenAPI",
+    ],
+    repoUrl: "https://github.com/ghisuh/weather_api_service",
   },
   {
-    title: "Engineering Depth Project",
+    title: "Clean the Streets",
     description:
-      "Focused system component with benchmarks + trade-offs documented.",
-    tech: ["TypeScript", "Testing", "Systems"],
-    repoUrl: "https://github.com/ghisuh/your-repo",
+      "Location-based civic issue reporting platform for potholes and street hazards, with geolocated reports, status tracking, and community issue browsing.",
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+    repoUrl: "https://github.com/theohudson24/cleanthestreets",
   },
 ];
