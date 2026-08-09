@@ -1,31 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "@/app/icon.png";
 
 const links = [
   { label: "Projects", href: "#projects" },
-  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [forceCompact, setForceCompact] = useState(true);
-  const lastScrollYRef = useRef(0);
+  const initialScrolled =
+    typeof window !== "undefined" ? window.scrollY > 24 : false;
+  const [isScrolled, setIsScrolled] = useState(initialScrolled);
+  const [isExpanded, setIsExpanded] = useState(!initialScrolled);
+  const [forceCompact, setForceCompact] = useState(initialScrolled);
+  const lastScrollYRef = useRef(
+    typeof window !== "undefined" ? window.scrollY : 0,
+  );
+  const forceCompactRef = useRef(initialScrolled);
   const lockExpandedRef = useRef(false);
   const lockTimeoutRef = useRef<number | null>(null);
-
-  useLayoutEffect(() => {
-    const currentY = window.scrollY;
-    const scrolled = currentY > 24;
-    setIsScrolled(scrolled);
-    setIsExpanded(!scrolled);
-    setForceCompact(scrolled);
-    lastScrollYRef.current = currentY;
-  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -36,8 +34,9 @@ export default function Navbar() {
         lastScrollYRef.current = currentY;
         return;
       }
-      if (forceCompact) {
+      if (forceCompactRef.current) {
         setForceCompact(false);
+        forceCompactRef.current = false;
       }
       const scrolled = currentY > 24;
       setIsScrolled(scrolled);
@@ -71,6 +70,7 @@ export default function Navbar() {
   const handleNavClick = () => {
     lockExpandedRef.current = true;
     setForceCompact(false);
+    forceCompactRef.current = false;
     setIsExpanded(true);
     if (lockTimeoutRef.current) {
       window.clearTimeout(lockTimeoutRef.current);
@@ -90,6 +90,7 @@ export default function Navbar() {
         aria-label="Primary"
         onMouseEnter={() => {
           setForceCompact(false);
+          forceCompactRef.current = false;
           if (isScrolled) {
             setIsExpanded(true);
           }

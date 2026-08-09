@@ -1,24 +1,93 @@
 import ProjectCard from "@/components/ProjectCard";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { projects } from "@/data/projects";
 
 const stackIcons = [
+  { name: "C", slug: "c" },
+  { name: "C++", slug: "cplusplus" },
+  { name: "Linux", slug: "linux" },
+  { name: "Python", slug: "python" },
+  { name: "TypeScript", slug: "typescript" },
+  { name: "Fastify", slug: "fastify" },
+  { name: "PostgreSQL", slug: "postgresql" },
+  { name: "Redis", slug: "redis" },
+  { name: "Docker", slug: "docker" },
   { name: "Next.js", slug: "nextdotjs" },
   { name: "React", slug: "react" },
-  { name: "TypeScript", slug: "typescript" },
-  { name: "Tailwind", slug: "tailwindcss" },
-  { name: "Node.js", slug: "nodedotjs" },
-  { name: "Postgres", slug: "postgresql" },
-  { name: "Prisma", slug: "prisma" },
-  { name: "Redis", slug: "redis" },
-  { name: "Fastify", slug: "fastify" },
-  { name: "Vercel", slug: "vercel" },
-  { name: "Docker", slug: "docker" },
-  { name: "GitHub", slug: "github" },
-  { name: "Figma", slug: "figma" },
+  { name: "Git", slug: "git" },
+];
+
+const skillGroups = [
+  {
+    title: "Systems / Low-Level",
+    items: [
+      "C",
+      "C++",
+      "Linux",
+      "POSIX",
+      "pthreads",
+      "Concurrency",
+      "Synchronization",
+      "HTTP / Networking Fundamentals",
+    ],
+  },
+  {
+    title: "Backend / Infrastructure",
+    items: [
+      "Python",
+      "TypeScript",
+      "Fastify",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "REST APIs",
+      "OpenAPI",
+    ],
+  },
+  {
+    title: "Web",
+    items: ["Next.js", "React", "Prisma", "Tailwind CSS", "NextAuth.js"],
+  },
+  {
+    title: "Tools",
+    items: ["Git", "Postman"],
+  },
+];
+
+const experiences = [
+  {
+    role: "STEM Instructor",
+    company: "Lavner Education",
+    location: "Los Angeles, CA",
+    period: "June 2026 - August 2026",
+    meta: "Camp Tech Revolution at UCLA",
+    bullets: [
+      "Delivered hands-on programming and STEM instruction to elementary and middle school students in classroom and one-on-one settings, including Python and game-development concepts.",
+      "Set up and maintained classroom computers, software, and network connectivity; troubleshot technical issues for students and staff.",
+      "Led classes in a fast-paced environment, coordinated with site staff, communicated technical issues, and supported equipment inventory and tracking.",
+    ],
+  },
+  {
+    role: "Operations Intern",
+    company: "FutureProof Labs",
+    location: "California, United States",
+    period: "October 2024 - November 2024",
+    meta: "AI Program Strategy & Execution",
+    bullets: [
+      "Supported operations for an AI hackathon focused on agentic workflows and Retrieval-Augmented Generation (RAG).",
+      "Coordinated with teams prototyping LLM-powered applications and automation workflows.",
+    ],
+  },
+];
+
+const coursework = [
+  "Principles of Computer Systems Design",
+  "Computer Architecture",
+  "Computer Systems & C Programming",
+  "Data Structures & Algorithms",
+  "Engineering Principles of Electronics",
 ];
 
 export default function Home() {
@@ -30,145 +99,219 @@ export default function Home() {
         <div className="hero-bleed__blob" aria-hidden="true" />
         <div className="hero-panel">
           <div className="hero-panel__content">
-          <p className="hero-panel__kicker">Full-stack developer</p>
+            <div className="hero-panel__primary">
+              <p className="hero-panel__kicker">
+                <span aria-hidden="true" /> Computer Science @ UC Santa Cruz
+              </p>
 
-          <h1 className="hero-panel__title">
-            <span className="hero-panel__name">Ghisuh</span>
-            <span className="hero-panel__headline">
-              Building calm, focused software.
-            </span>
-          </h1>
+              <h1 className="hero-panel__title">
+                <span className="hero-panel__name">Ghisuh Na</span>
+                <span className="hero-panel__headline">
+                  Engineering reliable software from systems to product.
+                </span>
+              </h1>
 
-          <p className="hero-panel__mission">
-            I build clean, fast web apps with strong backend fundamentals.
-            Currently looking for SWE internships.
-          </p>
+              <p className="hero-panel__mission">
+                I work across systems programming, backend infrastructure, and
+                full-stack applications—building clear, dependable software from
+                low-level concurrency to user-facing products.
+              </p>
 
-          <div className="flex flex-wrap gap-3 pt-2">
-            <Button asChild className="hero-cta hero-cta--primary">
-              <a
-                href="https://github.com/ghisuh"
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub
-              </a>
-            </Button>
+              <div className="hero-panel__actions">
+                <Button asChild className="hero-cta hero-cta--primary">
+                  <a href="#projects">View Projects</a>
+                </Button>
 
-            <Button
-              asChild
-              variant="outline"
-              className="hero-cta hero-cta--ghost"
-            >
-              <a
-                href="https://www.linkedin.com/in/ghisuh-na-b70b8a207/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
-            </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="hero-cta hero-cta--ghost"
+                >
+                  <a
+                    href="https://github.com/ghisuh"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub
+                  </a>
+                </Button>
 
-            <Button
-              asChild
-              variant="ghost"
-              className="hero-cta hero-cta--ghost"
-            >
-              <a href="/ghisuh_resume.pdf" target="_blank" rel="noreferrer">
-                Resume
-              </a>
-            </Button>
+                <Button
+                  asChild
+                  variant="ghost"
+                  className="hero-cta hero-cta--ghost"
+                >
+                  <a href="/ghisuh_resume.pdf" target="_blank" rel="noreferrer">
+                    Resume
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            <aside className="hero-focus" aria-label="Engineering focus">
+              <p className="hero-focus__label">Current focus</p>
+              <div className="hero-focus__list">
+                <div><span>01</span><strong>Systems &amp; concurrency</strong></div>
+                <div><span>02</span><strong>Backend infrastructure</strong></div>
+                <div><span>03</span><strong>Product engineering</strong></div>
+              </div>
+              <p className="hero-focus__note">
+                Building dependable paths from low-level primitives to polished software.
+              </p>
+            </aside>
+
+            <div className="hero-panel__footer">
+              <span>Open to software engineering internships</span>
+              <span>C · C++ · Python · TypeScript</span>
+            </div>
           </div>
-        </div>
         </div>
       </section>
 
-      <main className="w-full px-6 pb-24 pt-12 sm:px-8 sm:pt-16 lg:px-12">
-
-        {/* PROJECTS */}
-        <section className="section-shell space-y-6" id="projects">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-semibold tracking-tight">
-              Projects
-            </h2>
+      <main className="portfolio-content">
+        <section className="section-shell section-shell--narrow portfolio-section" id="projects">
+          <div className="section-heading">
+            <h2 className="section-heading__eyebrow">Selected Projects</h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {projects.map((p) => (
-              <ProjectCard key={p.title} project={p} />
+          <div className="project-grid">
+            {projects.map((project, index) => (
+              <ProjectCard key={project.title} project={project} index={index} />
             ))}
           </div>
+        </section>
 
-          <div className="stack-marquee mt-4">
-            <div className="stack-marquee__track">
-              {[...stackIcons, ...stackIcons].map((tool, index) => (
-                <div className="stack-marquee__item" key={`${tool.slug}-${index}`}>
-                  <img
-                    src={`https://cdn.simpleicons.org/${tool.slug}`}
-                    alt=""
-                    className="stack-marquee__icon"
-                    loading="lazy"
-                  />
-                  <span className="stack-marquee__label">{tool.name}</span>
-                </div>
+        <section className="section-shell section-shell--narrow portfolio-section portfolio-section--skills" id="skills">
+          <div className="section-heading">
+            <h2 className="section-heading__eyebrow">Skills</h2>
+          </div>
+
+          <div className="skills-stage">
+            <div className="stack-marquee" aria-label="Technology stack">
+              <div className="stack-marquee__track">
+                {[...stackIcons, ...stackIcons].map((tool, index) => (
+                  <div
+                    className="stack-marquee__item"
+                    key={`${tool.slug}-${index}`}
+                    aria-hidden={index >= stackIcons.length}
+                  >
+                    {/* The icon CDN keeps brand marks current without bundling a large icon package. */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`https://cdn.simpleicons.org/${tool.slug}/ffffff`}
+                      alt=""
+                      className="stack-marquee__icon"
+                      loading="lazy"
+                      width="28"
+                      height="28"
+                    />
+                    <span className="stack-marquee__label">{tool.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="skills-grid">
+              {skillGroups.map((group) => (
+                <section key={group.title} className="skills-card">
+                  <h3 className="skills-card__title">{group.title}</h3>
+                  <div className="skills-card__items">
+                    {group.items.map((item) => (
+                      <Badge key={item} variant="outline" className="skills-card__badge">
+                        {item}
+                      </Badge>
+                    ))}
+                  </div>
+                </section>
               ))}
             </div>
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <section className="section-shell section-shell--narrow portfolio-section" id="experience">
+          <div className="section-heading">
+            <h2 className="section-heading__eyebrow">Experience</h2>
+          </div>
 
-        {/* ABOUT */}
-        <section className="section-shell space-y-6" id="about">
-          <div className="about-feature">
-            <div className="about-feature__photo-wrap">
-              <Image
-                src="/about-headshot.jpg.jpeg"
-                alt="Portrait of Ghisuh"
-                fill
-                className="about-feature__photo"
-                sizes="(max-width: 1024px) 100vw, 520px"
-              />
+          <div className="experience-list">
+            {experiences.map((experience, index) => (
+              <article key={`${experience.company}-${experience.role}`} className="experience-card">
+                <span className="experience-card__index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="experience-card__header">
+                  <div>
+                    <h3 className="experience-card__role">{experience.role}</h3>
+                    <p className="experience-card__company">{experience.company}</p>
+                    {experience.meta && (
+                      <p className="experience-card__meta">{experience.meta}</p>
+                    )}
+                  </div>
+                  <div className="experience-card__aside">
+                    <p>{experience.period}</p>
+                    <p>{experience.location}</p>
+                  </div>
+                </div>
+                <ul className="experience-card__bullets">
+                  {experience.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section-shell section-shell--narrow portfolio-section" id="education">
+          <div className="section-heading">
+            <h2 className="section-heading__eyebrow">Education</h2>
+          </div>
+
+          <div className="education-card">
+            <p className="education-card__mark">UCSC / 2027</p>
+            <div className="education-card__top">
+              <div>
+                <h3 className="education-card__school">University of California, Santa Cruz</h3>
+                <p className="education-card__degree">B.S. Computer Science, Expected June 2027</p>
+              </div>
+              <p className="education-card__honor">Dean&apos;s Honors — UC Santa Cruz, Fall 2023</p>
             </div>
 
-            <div className="about-feature__content">
-              <h2 className="about-feature__title">
-                Design <span>Elevates</span>
-                <br />
-                Experience
-              </h2>
-              <p className="about-feature__copy">
-                I am a full-stack engineer focused on building products that
-                feel effortless and dependable. I care deeply about clean
-                architecture, API clarity, and strong UI systems that support
-                real user needs. I enjoy turning complex product ideas into
-                clear flows, maintainable code, and reliable performance. My
-                process is iterative and practical: ship, observe, refine, and
-                keep improving until the experience is simple, scalable, and
-                genuinely useful.
-              </p>
+            <div className="education-card__coursework">
+              <p className="education-card__coursework-label">Relevant Coursework</p>
+              <div className="education-card__coursework-items">
+                {coursework.map((course) => (
+                  <Badge key={course} variant="outline" className="skills-card__badge">
+                    {course}
+                  </Badge>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <Separator className="my-12" />
-
-        {/* CONTACT */}
-        <section className="section-shell space-y-4" id="contact">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Contact
-          </p>
-          <h2 className="text-3xl font-semibold tracking-tight">
-            Let&apos;s build something.
-          </h2>
-          <p className="text-sm text-muted-foreground">
+        <section className="section-shell section-shell--narrow portfolio-section contact-panel" id="contact">
+          <div className="contact-panel__glow" aria-hidden="true" />
+          <p className="contact-panel__eyebrow">Contact</p>
+          <h2 className="section-heading__title">Let&apos;s talk about systems, backend, and software engineering work.</h2>
+          <p className="contact-panel__copy">
             Email me and I&apos;ll get back fast.
           </p>
-          <div className="flex flex-wrap gap-3">
-            <Button asChild>
+          <div className="contact-panel__actions">
+            <Button asChild size="lg">
               <a href="mailto:ghisuh1@gmail.com">Email me</a>
             </Button>
+            <Button asChild size="lg" variant="outline">
+              <a href="https://github.com/ghisuh" target="_blank" rel="noreferrer">GitHub</a>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <a href="https://www.linkedin.com/in/ghisuh-na-b70b8a207/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </Button>
           </div>
+          <footer className="contact-panel__footer">
+            <span>Ghisuh Na</span>
+            <span>Built with Next.js and TypeScript</span>
+          </footer>
         </section>
       </main>
     </>
