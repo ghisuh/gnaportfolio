@@ -5,54 +5,37 @@ import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
 
 const stackIcons = [
-  { name: "C", slug: "c" },
-  { name: "C++", slug: "cplusplus" },
-  { name: "Linux", slug: "linux" },
-  { name: "Python", slug: "python" },
-  { name: "TypeScript", slug: "typescript" },
-  { name: "Fastify", slug: "fastify" },
-  { name: "PostgreSQL", slug: "postgresql" },
-  { name: "Redis", slug: "redis" },
-  { name: "Docker", slug: "docker" },
   { name: "Next.js", slug: "nextdotjs" },
   { name: "React", slug: "react" },
+  { name: "TypeScript", slug: "typescript" },
+  { name: "Node.js", slug: "nodedotjs" },
+  { name: "PostgreSQL", slug: "postgresql" },
+  { name: "Prisma", slug: "prisma" },
+  { name: "Redis", slug: "redis" },
+  { name: "Docker", slug: "docker" },
   { name: "Git", slug: "git" },
 ];
 
 const skillGroups = [
   {
-    title: "Systems / Low-Level",
-    items: [
-      "C",
-      "C++",
-      "Linux",
-      "POSIX",
-      "pthreads",
-      "Concurrency",
-      "Synchronization",
-      "HTTP / Networking Fundamentals",
-    ],
+    title: "Frontend",
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML", "CSS"],
   },
   {
-    title: "Backend / Infrastructure",
-    items: [
-      "Python",
-      "TypeScript",
-      "Fastify",
-      "PostgreSQL",
-      "Redis",
-      "Docker",
-      "REST APIs",
-      "OpenAPI",
-    ],
+    title: "Backend & APIs",
+    items: ["Node.js", "Fastify", "REST APIs", "Next.js API routes", "Authentication", "NextAuth.js"],
   },
   {
-    title: "Web",
-    items: ["Next.js", "React", "Prisma", "Tailwind CSS", "NextAuth.js"],
+    title: "Data",
+    items: ["PostgreSQL", "MySQL", "Prisma", "Redis", "SQL"],
   },
   {
-    title: "Tools",
-    items: ["Git", "Postman"],
+    title: "Tools & Deployment",
+    items: ["Git", "Docker", "Linux", "Vercel", "Railway", "Postman", "OpenAPI"],
+  },
+  {
+    title: "Languages",
+    items: ["TypeScript", "JavaScript", "Python", "SQL", "C", "C++"],
   },
 ];
 
@@ -64,9 +47,9 @@ const experiences = [
     period: "June 2026 - August 2026",
     meta: "Camp Tech Revolution at UCLA",
     bullets: [
-      "Delivered hands-on programming and STEM instruction to elementary and middle school students in classroom and one-on-one settings, including Python and game-development concepts.",
-      "Set up and maintained classroom computers, software, and network connectivity; troubleshot technical issues for students and staff.",
-      "Led classes in a fast-paced environment, coordinated with site staff, communicated technical issues, and supported equipment inventory and tracking.",
+      "Delivered hands-on programming and STEM instruction to elementary and middle school students in classroom and one-on-one environments.",
+      "Set up and maintained classroom computers, software, and network connectivity while troubleshooting technical issues for students and staff.",
+      "Communicated technical concepts clearly and adapted instruction to students with different levels of programming experience.",
     ],
   },
   {
@@ -76,8 +59,8 @@ const experiences = [
     period: "October 2024 - November 2024",
     meta: "AI Program Strategy & Execution",
     bullets: [
-      "Supported operations for an AI hackathon focused on agentic workflows and Retrieval-Augmented Generation (RAG).",
-      "Coordinated with teams prototyping LLM-powered applications and automation workflows.",
+      "Supported operations for an AI-focused hackathon centered on agentic workflows and Retrieval-Augmented Generation.",
+      "Collaborated with teams rapidly prototyping applications using LLMs and modern automation tools.",
     ],
   },
 ];
@@ -87,7 +70,7 @@ const coursework = [
   "Computer Architecture",
   "Computer Systems & C Programming",
   "Data Structures & Algorithms",
-  "Engineering Principles of Electronics",
+  "Technical Writing & Communication",
 ];
 
 export default function Home() {
@@ -107,14 +90,14 @@ export default function Home() {
               <h1 className="hero-panel__title">
                 <span className="hero-panel__name">Ghisuh Na</span>
                 <span className="hero-panel__headline">
-                  Engineering reliable software from systems to product.
+                  Full-Stack &amp; Product Software Engineering
                 </span>
               </h1>
 
               <p className="hero-panel__mission">
-                I work across systems programming, backend infrastructure, and
-                full-stack applications—building clear, dependable software from
-                low-level concurrency to user-facing products.
+                Computer Science student at UC Santa Cruz building polished,
+                end-to-end applications with React, TypeScript, APIs, databases,
+                and modern backend infrastructure.
               </p>
 
               <div className="hero-panel__actions">
@@ -145,24 +128,29 @@ export default function Home() {
                     Resume
                   </a>
                 </Button>
+                <Button asChild variant="ghost" className="hero-cta hero-cta--ghost">
+                  <a href="https://www.linkedin.com/in/ghisuh-na-b70b8a207/" target="_blank" rel="noreferrer">
+                    LinkedIn
+                  </a>
+                </Button>
               </div>
             </div>
 
             <aside className="hero-focus" aria-label="Engineering focus">
               <p className="hero-focus__label">Current focus</p>
               <div className="hero-focus__list">
-                <div><span>01</span><strong>Systems &amp; concurrency</strong></div>
-                <div><span>02</span><strong>Backend infrastructure</strong></div>
-                <div><span>03</span><strong>Product engineering</strong></div>
+                <div><span>01</span><strong>React &amp; TypeScript interfaces</strong></div>
+                <div><span>02</span><strong>APIs, authentication &amp; data</strong></div>
+                <div><span>03</span><strong>End-to-end product workflows</strong></div>
               </div>
               <p className="hero-focus__note">
-                Building dependable paths from low-level primitives to polished software.
+                Turning complex workflows into clear user experiences while owning the software behind them.
               </p>
             </aside>
 
             <div className="hero-panel__footer">
               <span>Open to software engineering internships</span>
-              <span>C · C++ · Python · TypeScript</span>
+              <span>React · TypeScript · PostgreSQL · APIs</span>
             </div>
           </div>
         </div>
@@ -290,10 +278,21 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section-shell section-shell--narrow portfolio-section" id="about">
+          <div className="section-heading">
+            <h2 className="section-heading__eyebrow">About</h2>
+          </div>
+          <div className="about-card">
+            <p>
+              I&apos;m a Computer Science student at UC Santa Cruz interested in full-stack and product software engineering. I enjoy building applications end-to-end, from responsive React interfaces and user workflows to APIs, authentication, databases, and backend infrastructure. I also have experience with lower-level systems programming, which helps me understand software beyond the framework layer.
+            </p>
+          </div>
+        </section>
+
         <section className="section-shell section-shell--narrow portfolio-section contact-panel" id="contact">
           <div className="contact-panel__glow" aria-hidden="true" />
           <p className="contact-panel__eyebrow">Contact</p>
-          <h2 className="section-heading__title">Let&apos;s talk about systems, backend, and software engineering work.</h2>
+          <h2 className="section-heading__title">Let&apos;s build a product people enjoy using.</h2>
           <p className="contact-panel__copy">
             Email me and I&apos;ll get back fast.
           </p>

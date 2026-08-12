@@ -6,9 +6,10 @@ import logo from "@/app/icon.png";
 
 const links = [
   { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
+  { label: "Skills", href: "#skills" },
+  { label: "About", href: "#about" },
+  { label: "Resume", href: "/ghisuh_resume.pdf" },
   { label: "Contact", href: "#contact" },
 ];
 

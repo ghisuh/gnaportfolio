@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import "./portfolio.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Ghisuh Na | Systems & Software Engineer",
+  title: "Ghisuh Na | Full-Stack Software Engineer",
   description:
-    "Computer Science student at UC Santa Cruz building systems software, backend infrastructure, and full-stack applications in C, C++, Python, and TypeScript.",
+    "Computer Science student at UC Santa Cruz building full-stack applications with React, TypeScript, APIs, PostgreSQL, and modern backend technologies.",
   openGraph: {
-    title: "Ghisuh Na | Systems & Software Engineer",
+    title: "Ghisuh Na | Full-Stack Software Engineer",
     description:
-      "Computer Science student at UC Santa Cruz building systems software, backend infrastructure, and full-stack applications in C, C++, Python, and TypeScript.",
+      "Computer Science student at UC Santa Cruz building full-stack applications with React, TypeScript, APIs, PostgreSQL, and modern backend technologies.",
     url: "https://gnaportfolio.vercel.app",
     siteName: "Ghisuh Portfolio",
     locale: "en_US",
@@ -23,9 +17,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ghisuh Na | Systems & Software Engineer",
+    title: "Ghisuh Na | Full-Stack Software Engineer",
     description:
-      "Systems software, backend infrastructure, and full-stack applications in C, C++, Python, and TypeScript.",
+      "Full-stack applications built with React, TypeScript, APIs, PostgreSQL, and modern backend technologies.",
   },
 };
 
@@ -36,11 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

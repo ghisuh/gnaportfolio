@@ -21,6 +21,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
 
       <CardHeader className="project-card__header">
         <h3 className="project-card__title">{project.title}</h3>
+        <p className="project-card__subtitle">{project.subtitle}</p>
       </CardHeader>
 
       <CardContent className="project-card__content">
@@ -84,11 +85,6 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             </Button>
           )}
 
-          {project.repoPending && (
-            <Button variant="outline" className="project-card__button" disabled title="Repository coming soon">
-              <Github aria-hidden="true" /> GitHub soon
-            </Button>
-          )}
         </div>
       </CardContent>
     </Card>

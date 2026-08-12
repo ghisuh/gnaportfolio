@@ -47,6 +47,7 @@
 }
 
 :root {
+  --font-inter: Inter, "Segoe UI", Arial, sans-serif;
   --radius: 0.75rem;
   --background: oklch(0.985 0.004 260);
   --foreground: oklch(0.2 0.02 260);
