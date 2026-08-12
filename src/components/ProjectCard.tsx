@@ -7,6 +7,7 @@ import { ArrowUpRight, Github } from "lucide-react";
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
   const architecture = project.architecture;
   const engineeringFocus = project.engineeringFocus;
+  const titleParts = project.title.split(/(?=Streets$)/);
 
   return (
     <Card
@@ -20,7 +21,14 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       </div>
 
       <CardHeader className="project-card__header">
-        <h3 className="project-card__title">{project.title}</h3>
+        <h3 className="project-card__title">
+          {titleParts.map((part, partIndex) => (
+            <span key={part}>
+              {partIndex > 0 && <wbr />}
+              {part}
+            </span>
+          ))}
+        </h3>
         <p className="project-card__subtitle">{project.subtitle}</p>
       </CardHeader>
 
