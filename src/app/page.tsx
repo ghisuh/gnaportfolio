@@ -84,7 +84,7 @@ export default function Home() {
           <div className="hero-panel__content">
             <div className="hero-panel__primary">
               <p className="hero-panel__kicker">
-                <span aria-hidden="true" /> Computer Science @ UC Santa Cruz
+                Computer Science @ UC Santa Cruz
               </p>
 
               <h1 className="hero-panel__title">
@@ -95,9 +95,9 @@ export default function Home() {
               </h1>
 
               <p className="hero-panel__mission">
-                Computer Science student at UC Santa Cruz building polished,
-                end-to-end applications with React, TypeScript, APIs, databases,
-                and modern backend infrastructure.
+                Computer Science student at UC Santa Cruz building end-to-end
+                applications with React, TypeScript, APIs, databases, and modern
+                backend infrastructure.
               </p>
 
               <div className="hero-panel__actions">
@@ -143,9 +143,6 @@ export default function Home() {
                 <div><span>02</span><strong>APIs, authentication &amp; data</strong></div>
                 <div><span>03</span><strong>End-to-end product workflows</strong></div>
               </div>
-              <p className="hero-focus__note">
-                Turning complex workflows into clear user experiences while owning the software behind them.
-              </p>
             </aside>
 
             <div className="hero-panel__footer">
